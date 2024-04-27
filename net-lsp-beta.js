@@ -767,7 +767,7 @@ async function getDirectInfoIPv6() {
   } else {
     try {
       const res = await http({
-        url: `https://ipv6.ddnspod.com`,
+        url: `https://ip.ddnspod.com`,
         headers: {
           'User-Agent':
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.14',
@@ -887,7 +887,7 @@ async function getProxyInfo(ip, provider) {
       const res = await http({
         ...(ip ? {} : getNodeOpt()),
 
-        url: `https://api-ipv4.ip.sb/geoip${ip ? `/${encodeURIComponent(ip)}` : ''}`,
+        url: `https://api.ip.sb/geoip${ip ? `/${encodeURIComponent(ip)}` : ''}`,
         headers: {
           'User-Agent':
             'Mozilla/5.0 (iPhone CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/109.0.0.0',
@@ -1069,7 +1069,7 @@ async function getProxyInfoIPv6(ip) {
       const res = await http({
         ...(ip ? {} : getNodeOpt()),
 
-        url: `https://api-ipv6.ip.sb/ip`,
+        url: `https://api.ip.sb/ip`,
         headers: {
           'User-Agent':
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.14',
