@@ -5,6 +5,16 @@
 #!openurl=https://t.me/zhetengsha
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
 
+[Rule]
+# DOMAIN,mip.chinaz.com,DIRECT
+# DOMAIN,cip.cc,DIRECT
+# DOMAIN,speed.neu6.edu.cn,DIRECT
+# DOMAIN,ipv6.ddnspod.com,DIRECT
+DOMAIN,ip-api.com,PROXY
+DOMAIN,wtfismyip.com,PROXY
+DOMAIN,api-ipv6.ip.sb,PROXY
+DOMAIN,v6.ident.me,PROXY
+
 [Script]
 # Request
 http-request ^https?:\/\/net-lsp-x\.com script-path=https://raw.githubusercontent.com/GitHubWBB/Loon/main/net-lsp-beta.js, timeout=120, tag=网络信息请求 𝕏
