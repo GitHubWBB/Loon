@@ -5,8 +5,8 @@
 #!openurl=https://github.com/GitHubWBB
 #!date=2024-04-27
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
-#!input=55
-#!select=test,1,2
+#!input=
+#!select=
 
 
 [Script]
