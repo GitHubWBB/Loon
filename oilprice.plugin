@@ -1,0 +1,13 @@
+#!name=每日油价
+#!desc=每日7:30自动推送油价信息
+#!author=@GitHubWBB
+#!homepage=https://github.com/GitHubWBB
+#!openurl=https://github.com/GitHubWBB
+#!date=2024-04-28
+#!icon=https://raw.githubusercontent.com/Toperlock/Quantumult/main/icon/oil.png
+
+
+
+[Script]
+# Cron
+cron "30 7 * * *" script-path=https://raw.githubusercontent.com/Toperlock/Quantumult/main/task/oil_price.js, timeout=10, tag=🛢️成都油价, img-url=https://raw.githubusercontent.com/Toperlock/Quantumult/main/icon/oil.png
