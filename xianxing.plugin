@@ -1,0 +1,13 @@
+#!name=每日限行
+#!desc=每日7:30自动推送限行信息
+#!author=@GitHubWBB
+#!homepage=https://github.com/GitHubWBB
+#!openurl=https://github.com/GitHubWBB
+#!date=2024-04-28
+#!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Frog.png
+
+
+
+[Script]
+# Cron
+cron "30 7 * * *" script-path=https://raw.githubusercontent.com/chengkongyiban/Surge/main/js/xianxing.js, timeout=10, tag=🚗成都限行, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Frog.png, argument="city=cd&cartype=燃油车&loo=本地车&displayxxregion=false"
