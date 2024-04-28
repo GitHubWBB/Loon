@@ -1,0 +1,13 @@
+#!name=每日天气
+#!desc=每日7:30自动推送天气信息
+#!author=@GitHubWBB
+#!homepage=https://github.com/GitHubWBB
+#!openurl=https://github.com/GitHubWBB
+#!date=2024-04-28
+#!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/iCloud.png
+
+
+
+[Script]
+# Cron
+cron "30 7-20/6 * * *" script-path=https://whatshub.top/plugin/tianqi.js, timeout=10, tag=🌤️成都天气, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/iCloud.png, argument="101270101"
