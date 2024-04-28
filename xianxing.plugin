@@ -10,4 +10,4 @@
 
 [Script]
 # Cron
-cron "30 7 * * *" script-path=https://raw.githubusercontent.com/chengkongyiban/Surge/main/js/xianxing.js, timeout=10, tag=🚗成都限行, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Frog.png, argument="city=cd&cartype=燃油车&loo=本地车&displayxxregion=false"
+cron "40 10 * * *" script-path=https://raw.githubusercontent.com/chengkongyiban/Surge/main/js/xianxing.js, timeout=10, tag=🚗成都限行, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Frog.png, argument="city=cd&cartype=燃油车&loo=本地车&displayxxregion=false"
