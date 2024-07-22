@@ -10,4 +10,6 @@
 
 [Script]
 # Cron
-cron "30 7 * * *" script-path=https://raw.githubusercontent.com/Sliverkiss/GoodNight/master/Script/xianxing.js, timeout=10, tag=🚗成都限行, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Frog.png, argument=city={{{city}}}&loo={{{loo}}}&cartype={{{cartype}}}
+ cron "30 7 * * *" script-path=https://raw.githubusercontent.com/GitHubWBB/Loon/main/xianxing.js, timeout=10, tag=🚗成都限行, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Frog.png, argument=city=cd&loo=本地车&cartype=燃油车
+
+# cron "30 7 * * *" script-path=https://raw.githubusercontent.com/Sliverkiss/GoodNight/master/Script/xianxing.js, timeout=10, tag=🚗成都限行, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Frog.png, argument=city={{{city}}}&loo={{{loo}}}&cartype={{{cartype}}}
