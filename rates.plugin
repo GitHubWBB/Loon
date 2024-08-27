@@ -1,6 +1,6 @@
 #!name = 实时汇率
 #!desc = 实时汇率信息推送插件
-#!author = GitHubWBB
+#!author = GitHubWBB[https://github.com/GitHubWBB/Loon]
 #!homePage = 
 #!data = 2024-08-27
 #!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Cryptocurrency.png
@@ -12,10 +12,10 @@
 [Argument]
 
 
-cron = input,"0 8 * * *",tag=定时任务时间,desc=定时任务的cron表达式
+cron = input,"30 7 * * *",tag=定时任务时间,desc=定时任务的cron表达式
 
 
 [Script]
 
 
-cron {cron} script-path=https://raw.githubusercontent.com/GitHubWBB/Loon/main/rates.js,tag = cronExample,enable=true
+cron {cron} script-path=https://raw.githubusercontent.com/GitHubWBB/Loon/main/rates.js,tag = rates,enable=true
