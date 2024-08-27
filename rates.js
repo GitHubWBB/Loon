@@ -54,7 +54,7 @@ function showNotification(data) {
   if (isQuantumultX) {
     $notify(`🪙当前汇率信息 ${timestamp}`, "", content);
   } else if (isSurge || isLoon) {
-    $notification.post(`🪙当前汇率信息 ${timestamp}`, "555", content);
+    $notification.post(`🪙当前汇率信息 ${timestamp}`, "", content);
   }
   $done();
 }

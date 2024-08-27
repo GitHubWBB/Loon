@@ -1,15 +1,22 @@
-#!name=每日限行
-#!desc=每日7:30自动推送限行信息
-#!author=@GitHubWBB
-#!homepage=https://github.com/GitHubWBB
-#!openurl=https://github.com/GitHubWBB
-#!date=2024-07-08
+#!name = 每日限行
+#!desc = 每日7:30自动推送限行信息
+#!author = GitHubWBB[https://github.com/GitHubWBB/Loon]
+#!homePage = https://nsloon.com
+#!data = 2024-08-27
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Frog.png
+#!system = ios,tvos,macos
+#!system_version = 15.0
+#!loon_version = 3.2.1(734)
+#!tag = 信息推送
 
-
+[Argument]
+city = input,"cd",tag=城市的缩写,desc=城市的缩写，如成都cd
+carType = select,"燃油车","新能源",tag=车的分类
+loo = input,"本地车","外地车",tag=本地车,desc=本地车
+cron = input,"0 8 * * *",tag=定时任务时间,desc=定时任务的cron表达式
+displayxxregion = switch,true,tag=是否启用区域
 
 [Script]
-# Cron
- cron "30 7 * * *" script-path=https://raw.githubusercontent.com/GitHubWBB/Loon/main/xianxing.js, timeout=10, tag=🚗成都限行, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Frog.png
 
-# cron "30 7 * * *" script-path=https://raw.githubusercontent.com/Sliverkiss/GoodNight/master/Script/xianxing.js, timeout=10, tag=🚗成都限行, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Frog.png, argument=city={{{city}}}&loo={{{loo}}}&cartype={{{cartype}}}
+cron {cron} script-path=https://raw.githubusercontent.com/GitHubWBB/Loon/main/xianxing.js,tag = xianxing,argument=[{city},{carType},{loo},{displayxxregion}],enable=true
+
