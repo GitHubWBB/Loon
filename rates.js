@@ -42,19 +42,19 @@ function showNotification(data) {
   });
 
   const content = `
-🇺🇸1美元兑换 ${usdToCny}🇨🇳人民币
-🇨🇳1人民币兑换 ${cnyToHkd}🇭🇰港币
-🇨🇳1人民币兑换 ${cnyToJpy}🇯🇵日元
-🇨🇳1人民币兑换 ${cnyToKrw}🇰🇷韩元
-🇨🇳1人民币兑换 ${tryToCny}🇹🇷里拉
-🇪🇺1欧元兑换 ${eurToCny}🇨🇳人民币
-🇬🇧1英镑兑换 ${gbpToCny}🇨🇳人民币
+    🇺🇸1美元兑换 ${usdToCny}🇨🇳人民币
+    🇨🇳1人民币兑换 ${cnyToHkd}🇭🇰港币
+    🇨🇳1人民币兑换 ${cnyToJpy}🇯🇵日元
+    🇨🇳1人民币兑换 ${cnyToKrw}🇰🇷韩元
+    🇨🇳1人民币兑换 ${tryToCny}🇹🇷里拉
+    🇪🇺1欧元兑换 ${eurToCny}🇨🇳人民币
+    🇬🇧1英镑兑换 ${gbpToCny}🇨🇳人民币
   `;
 
   if (isQuantumultX) {
     $notify(`🪙当前汇率信息 ${timestamp}`, "", content);
   } else if (isSurge || isLoon) {
-    $notification.post(`🪙当前汇率信息 ${timestamp}`, "", content);
+    $notification.post(`🪙当前汇率信息 ${timestamp}`, "555", content);
   }
   $done();
 }
