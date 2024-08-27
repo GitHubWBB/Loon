@@ -10,11 +10,11 @@
 #!tag = 信息推送
 
 [Argument]
-city = input,"cd",tag=城市的缩写,desc=城市的缩写，如成都cd
-carType = select,"燃油车","新能源",tag=车的分类
-loo = input,"本地车","外地车",tag=本地车,desc=本地车
-cron = input,"0 8 * * *",tag=定时任务时间,desc=定时任务的cron表达式
-displayxxregion = switch,true,tag=是否启用区域
+city = input,"cd",tag=城市缩写,desc=城市缩写，如成都cd
+carType = select,"燃油车","新能源",tag=车的类型
+loo = select,"本地车","外地车",tag=车的属地,desc=本地车或外地车
+cron = input,"30 7 * * *",tag=定时任务时间,desc=定时任务的cron表达式
+displayxxregion = switch,true,tag=启用区域
 
 [Script]
 
