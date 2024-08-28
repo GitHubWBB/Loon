@@ -15,4 +15,4 @@ DOMAIN,api-ipv6.ip.sb,PROXY
 DOMAIN,v6.ident.me,PROXY
 
 [Script]
-network-changed script-path=https://raw.githubusercontent.com/GitHubWBB/Loon/main/event.js
+network-changed script-path=https://raw.githubusercontent.com/GitHubWBB/Loon/main/js/event.js
