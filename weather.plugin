@@ -6,11 +6,11 @@
 #!date=2024-08-28
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/iCloud.png
 
-[Argument]
+#[Argument]
 
 
-cron = input,"30 7-20/6 * * *",tag=定时任务时间,desc=定时任务的cron表达式
+#cron = input,"30 7-20/6 * * *",tag=定时任务时间,desc=定时任务的cron表达式
 
 [Script]
 # Cron
-cron {cron} script-path=https://whatshub.top/plugin/tianqi.js, timeout=10, tag=🌤️成都天气, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/iCloud.png, argument="101270101"
+cron "30 7-20/6 * * *" script-path=https://whatshub.top/plugin/tianqi.js, timeout=10, tag=🌤️成都天气, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/iCloud.png, argument="101270101"
