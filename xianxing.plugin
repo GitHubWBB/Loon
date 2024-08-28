@@ -1,8 +1,8 @@
 #!name = 每日限行
 #!desc = 每日自动推送限行信息
 #!author = GitHubWBB[https://github.com/GitHubWBB/Loon]
-#!openurl = https://nsloon.com
-#!homePage = https://nsloon.com
+#!openurl =
+#!homePage =
 #!data = 2024-08-27
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Frog.png
 #!system = ios,tvos,macos
@@ -11,11 +11,9 @@
 #!tag = 信息推送
 
 [Argument]
-city = input,"cd",tag=城市缩写,desc=城市缩写，如成都cd
-cartype = select,"燃油车","新能源",tag=车的类型
-loo = select,"本地车","外地车",tag=车的属地,desc=本地车或外地车
+
 cron = input,"30 7 * * *",tag=定时任务时间,desc=定时任务的cron表达式
-displayxxregion = switch,true,tag=启用区域
+
 
 [Script]
 
