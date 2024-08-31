@@ -17,18 +17,26 @@ xianxing = type=generic, script-path=https://raw.githubusercontent.com/chengkong
 
 const $ = new Env("限行查询");
 
-var city = $argument.city;
-var cartype = encodeURIComponent($argument.cartype);
-var loo = $argument.loo;
-var displayxxregion = $argument.displayxxregion;
+var city = cd;
+var cartype = encodeURIComponent('燃油车');
+var loo = '本地车';
+var displayxxregion = true;
 
+/*
 if (typeof $argument !== 'undefined' && $argument !== '') {
     city = $argument.split('city=')[1].split('&')[0];
     cartype = encodeURIComponent($argument.split('cartype=')[1].split('&')[0]);
 		loo = /外地车/.test($argument) ? '外地车' : loo;
         displayxxregion = /displayxxregion=/.test($argument) ? istrue($argument.split('displayxxregion=')[1].split('&')[0]) : false;
 };
+*/
 
+if (typeof $argument !== 'undefined' && $argument !== '') {
+    city = $argument.city;
+    cartype = encodeURIComponent($argument.cartype);
+	loo = $argument.loo;
+    displayxxregion = $argument.displayxxregion;
+};
 let url = `http://m.${city}.bendibao.com/news/xianxingchaxun/index.php?category=${cartype}`;
 
 !(async () => {
