@@ -17,7 +17,7 @@ xianxing = type=generic, script-path=https://raw.githubusercontent.com/chengkong
 
 const $ = new Env("限行查询");
 
-var city = cd;
+var city = 'cd';
 var cartype = encodeURIComponent('燃油车');
 var loo = '本地车';
 var displayxxregion = true;
