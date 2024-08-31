@@ -17,10 +17,10 @@ xianxing = type=generic, script-path=https://raw.githubusercontent.com/chengkong
 
 const $ = new Env("限行查询");
 
-var city = 'cd';
-var cartype = encodeURIComponent('燃油车');
-var loo = '本地车';
-var displayxxregion = false;
+var city = $argument.city;
+var cartype = encodeURIComponent($argument.cartype);
+var loo = $argument.loo;
+var displayxxregion = $argument.displayxxregion;
 
 if (typeof $argument !== 'undefined' && $argument !== '') {
     city = $argument.split('city=')[1].split('&')[0];
