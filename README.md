@@ -1,2 +1,2 @@
 # Loon
-Loon自用插件资源
+https://raw.githubusercontent.com/GitHubWBB/Loon/main/xx.plugin
