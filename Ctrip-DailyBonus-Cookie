@@ -1,0 +1,12 @@
+#!name= NobyDa签到脚本Cookie获取
+#!desc= 包括携程旅行。获取方法请看脚本注释；建议使用后手动将该插件禁用, 以避免无意义的MITM。
+#!author= NobyDa
+#!homepage= https://github.com/NobyDa/Script/tree/master
+#!icon= https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png
+
+[Script]
+
+http-response ^https:\/\/m\.ctrip\.com\/restapi\/soa2\/\d+\/[a-zA-Z]+Login(?:$|\?) script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Ctrip-DailyBonus/Ctrip.js, requires-body=true, tag=携程旅行Cookie
+
+[MITM]
+hostname = m.ctrip.com
