@@ -16,8 +16,7 @@ cronexp = input,"57 21 * * *",tag=定时任务时间,desc=定时任务的cron表
 city= input,"cd",tag=城市
 cartype=select,"燃油车",tag=车类别
 loo=select,"本地车","外地车",tag=车属地
-displayxxregion=switch,true,tag=限行区域
 [Script]
 
-cron {cronexp} script-path=https://raw.githubusercontent.com/GitHubWBB/Surge/main/js/xianxing.js,tag = xianxing,argument=[{city},{cartype},{loo},{displayxxregion}],enable=true
+cron {cronexp} script-path=https://raw.githubusercontent.com/GitHubWBB/Surge/main/js/xianxing.js,tag = xianxing,argument=[{city},{cartype},{loo}],enable=true
 
