@@ -1,0 +1,18 @@
+#!name=IThome自动签到
+#!desc=IThome签到，获取方式:app进入签到页面获取
+#!author=GitHubWBB
+#!homepage=https://github.com/GitHubWBB
+#!openurl=https://github.com/GitHubWBB
+#!date=20250322
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/IThome.png
+
+
+
+[Script]
+
+http-response ^https:\/\/napi\.ithome\.com\/api\/usersign\/getsigninfo? script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/ithome/ithome.cookie.js
+cron "10 7 * * *" script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/ithome/ithome.js
+
+
+[MITM]
+hostname = napi.ithome.com
