@@ -1,15 +1,15 @@
 #!name=限行查询 (Loon适配版 V2)
 #!desc=车辆限行信息查询。支持通过插件参数修改城市、车型、车辆归属以及定时执行的时间。
 #!author=Sliverkiss (Manus适配)
-#!icon=https://raw.githubusercontent.com/GitHubWBB/Loon/main/js/traffic_limit_icon.png
+#!icon=https://raw.githubusercontent.com/GitHubWBB/Loon/main/js/traffic_limit_icon_v2.png
 #!date=2026-02-08
-
-[Script]
-# 定时任务：使用 {{{cron}}} 语法引用下方 Argument 中定义的 Cron 表达式
-cron "{{{cron}}}" script-path=https://raw.githubusercontent.com/GitHubWBB/Loon/main/js/chengdu_traffic_adapted_v2.js, tag=限行查询, argument=city={{{city}}}&loo={{{loo}}}&cartype={{{cartype}}}
 
 [Argument]
 cron = input, "30 7 * * *", tag=定时时间, desc="Cron 表达式，默认每天 07:30。格式: 秒 分 时 日 月 周"
 city = input, "cd", tag=城市缩写, desc="城市缩写，如 cd (成都), sz (深圳)"
 loo = select, "本地车", "外地车", tag=车辆归属, desc="本地车或外地车"
 cartype = select, "燃油车", "新能源车", tag=汽车种类, desc="汽车种类"
+
+[Script]
+# 定时任务：使用 {{{cron}}} 语法引用下方 Argument 中定义的 Cron 表达式
+cron "{{{cron}}}" script-path=https://raw.githubusercontent.com/GitHubWBB/Loon/main/js/chengdu_traffic_adapted_v2.js, tag=限行查询, argument=city={{{city}}}&loo={{{loo}}}&cartype={{{cartype}}}
