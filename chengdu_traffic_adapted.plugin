@@ -1,0 +1,19 @@
+#!name=限行查询 (Loon适配版)
+#!desc=车辆限行信息查询，支持多城市及汽车种类设置。
+#!author=Sliverkiss (Manus适配)
+#!icon=https://raw.githubusercontent.com/luestr/IconCenter/master/Apps/Traffic.png
+#!date=2026-02-08
+
+[Rule]
+# 如果脚本中涉及特定域名的 MITM 或 规则，可在此添加
+
+[Script]
+# 定时任务：每天早上 7:30 执行一次
+cron "30 7 * * * " script-path=https://您的脚本托管地址/chengdu_traffic_adapted.js, tag=限行查询, argument=city=cd&loo=本地车&cartype=燃油车
+
+# 手动执行 (可选，Loon 支持在脚本列表手动运行)
+
+[Argument]
+city = input, "cd", tag=城市缩写, desc="城市缩写，如 cd (成都), sz (深圳)"
+loo = select, "本地车", "外地车", tag=车辆归属, desc="本地车或外地车"
+cartype = select, "燃油车", "新能源车", tag=汽车种类, desc="汽车种类"
