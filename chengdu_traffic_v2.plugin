@@ -1,7 +1,7 @@
 #!name=限行查询 (Loon适配版 V2)
 #!desc=车辆限行信息查询。支持通过插件参数修改城市、车型、车辆归属以及定时执行的时间。
 #!author=Sliverkiss (Manus适配)
-#!icon=https://raw.githubusercontent.com/luestr/IconCenter/master/Apps/Traffic.png
+#!icon=https://raw.githubusercontent.com/GitHubWBB/Loon/main/js/traffic_limit_icon.png
 #!date=2026-02-08
 
 [Script]
