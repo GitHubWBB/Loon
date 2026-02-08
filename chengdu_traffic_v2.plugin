@@ -12,4 +12,4 @@ cartype = select, "燃油车", "新能源车", tag=汽车种类, desc="汽车种
 
 [Script]
 # 定时任务：使用 {{{cron}}} 语法引用下方 Argument 中定义的 Cron 表达式
-cron 30 7 * * * script-path=https://raw.githubusercontent.com/GitHubWBB/Loon/main/js/chengdu_traffic_adapted_v2.js, tag=限行查询, argument=city={{{city}}}&loo={{{loo}}}&cartype={{{cartype}}}
+cron {cron} script-path=https://raw.githubusercontent.com/GitHubWBB/Loon/main/js/chengdu_traffic_adapted_v2.js, tag=限行查询, argument=city={{{city}}}&loo={{{loo}}}&cartype={{{cartype}}}
