@@ -1,7 +1,7 @@
 #!name=万年历及详细黄历
 #!desc=从日历网获取每日农历、节假日、干支五行、星宿节气等详细信息。支持在插件设置中通过参数自定义 Cron 定时。
 #!author=Manus
-#!icon=https://files.manuscdn.com/user_upload_by_module/session_file/310419663030344124/eMPbOljBoWdmCgxP.png
+#!icon=https://files.manuscdn.com/user_upload_by_module/session_file/310419663030344124/zsYRalMhLTbNTJlR.png
 #!date=2026-02-09
 
 [Argument]
