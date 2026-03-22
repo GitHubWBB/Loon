@@ -1,11 +1,15 @@
 /*************************************
- * ⛽ 油价终极版（真实国际+汇率）
+ * ⛽ 油价终极版 Pro（Loon 专用）
+ * 支持：参数化 + 国际油价 + 汇率 + 趋势 + 倒计时
  *************************************/
 
+// ===== 读取参数 =====
 const args = parseArgs();
 
 const CONFIG = {
-  city: args.city || "北京"
+  city: args.city || "北京",
+  intl: args.intl !== "false",
+  notify: args.notify !== "false"
 };
 
 (async () => {
@@ -14,14 +18,19 @@ const CONFIG = {
   let trend = calcTrend(oil.p92);
   let trendList = saveTrend(CONFIG.city, oil.p92);
 
-  let intl = await getIntl();
-  let fx = await getFX();
+  let intl = CONFIG.intl ? await getIntl() : null;
+  let fx = CONFIG.intl ? await getFX() : null;
 
   let countdown = getCountdown();
 
   let msg = buildMsg(oil, trend, trendList, intl, fx, countdown);
 
-  $notification.post(`⛽ 油价面板 [${CONFIG.city}]`, "", msg);
+  // ===== 通知控制 =====
+  if (CONFIG.notify) {
+    $notification.post(`⛽ 油价面板 [${CONFIG.city}]`, "", msg);
+  } else {
+    console.log(msg);
+  }
 
   $done();
 
@@ -40,12 +49,12 @@ async function getDomestic(city) {
       p98: num(d.oil98),
       p0: num(d.oil0)
     };
-  } catch {
+  } catch (e) {
     return { p92:"-", p95:"-", p98:"-", p0:"-" };
   }
 }
 
-// ===== 国际油价（真实API）=====
+// ===== 国际油价 =====
 async function getIntl() {
   try {
     let res = await httpGet("https://api.oilpriceapi.com/v1/demo/prices");
@@ -67,14 +76,13 @@ async function getIntl() {
 async function getFX() {
   try {
     let res = await httpGet("https://api.exchangerate-api.com/v4/latest/USD");
-    let rate = JSON.parse(res).rates.CNY;
-    return rate;
+    return JSON.parse(res).rates.CNY;
   } catch {
     return 7.2;
   }
 }
 
-// ===== 趋势 =====
+// ===== 趋势计算 =====
 function calcTrend(current) {
   let last = $persistentStore.read("oil_last");
 
@@ -90,13 +98,15 @@ function calcTrend(current) {
   return `${arrow}${diff}`;
 }
 
-// ===== 趋势数组 =====
+// ===== 趋势记录 =====
 function saveTrend(city, val) {
   let key = "oil_trend_" + city;
-  let arr = JSON.parse($persistentStore.read(key) || "[]");
+  let lastKey = "oil_last_" + city;
 
-  if (arr.length > 0) {
-    let lastVal = $persistentStore.read("oil_last_" + city) || val;
+  let arr = JSON.parse($persistentStore.read(key) || "[]");
+  let lastVal = $persistentStore.read(lastKey);
+
+  if (lastVal) {
     arr.push(val > lastVal ? "↑" : val < lastVal ? "↓" : "→");
   } else {
     arr.push("→");
@@ -105,12 +115,12 @@ function saveTrend(city, val) {
   if (arr.length > 5) arr.shift();
 
   $persistentStore.write(JSON.stringify(arr), key);
-  $persistentStore.write(val, "oil_last_" + city);
+  $persistentStore.write(val, lastKey);
 
   return arr.join("");
 }
 
-// ===== 倒计时 =====
+// ===== 调价倒计时 =====
 function getCountdown() {
   let base = new Date("2024-01-03T24:00:00");
   let now = new Date();
@@ -120,42 +130,50 @@ function getCountdown() {
 
   let diff = next - now;
 
-  let d = Math.floor(diff/86400000);
-  let h = Math.floor(diff%86400000/3600000);
+  let d = Math.floor(diff / 86400000);
+  let h = Math.floor(diff % 86400000 / 3600000);
 
   return `${d}天${h}小时`;
 }
 
-// ===== UI =====
+// ===== UI拼接 =====
 function buildMsg(oil, trend, trendList, intl, fx, countdown) {
 
-  let brentCNY = intl.brent !== "-" ? (intl.brent * fx).toFixed(0) : "-";
-  let wtiCNY = intl.wti !== "-" ? (intl.wti * fx).toFixed(0) : "-";
-
-  return (
+  let text =
     `📅 调价倒计时：${countdown}\n` +
     `📉 92#：${oil.p92} ${trend}\n` +
     `⛽ 95#：${oil.p95} ｜ 98#：${oil.p98}\n` +
     `🚛 0#：${oil.p0}\n` +
-    `📊 趋势：${trendList}\n` +
-    `🛢️ Brent：$${intl.brent} ≈ ¥${brentCNY}\n` +
-    `🛢️ WTI：$${intl.wti} ≈ ¥${wtiCNY}\n` +
-    `💱 汇率：${fx}\n` +
-    `🔔 每6小时自动更新`
-  );
+    `📊 趋势：${trendList}`;
+
+  if (intl && fx) {
+    let brentCNY = intl.brent !== "-" ? (intl.brent * fx).toFixed(0) : "-";
+    let wtiCNY = intl.wti !== "-" ? (intl.wti * fx).toFixed(0) : "-";
+
+    text +=
+      `\n🛢️ Brent：$${intl.brent} ≈ ¥${brentCNY}` +
+      `\n🛢️ WTI：$${intl.wti} ≈ ¥${wtiCNY}` +
+      `\n💱 汇率：${fx}`;
+  }
+
+  text += `\n🔔 自动更新`;
+
+  return text;
 }
 
 // ===== 工具 =====
 function parseArgs() {
   if (!$argument) return {};
-  return Object.fromEntries($argument.split("&").map(i => i.split("=")));
+  return Object.fromEntries(
+    $argument.split("&").map(i => i.split("="))
+  );
 }
 
 function httpGet(url) {
-  return new Promise((res, rej) => {
+  return new Promise((resolve, reject) => {
     $httpClient.get(url, (err, resp, body) => {
-      if (err) rej(err);
-      else res(body);
+      if (err) reject(err);
+      else resolve(body);
     });
   });
 }
