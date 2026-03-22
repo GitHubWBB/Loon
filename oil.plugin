@@ -7,7 +7,7 @@
 [Argument]
 
 cron = input,"0 */6 * * *",tag=定时任务
-city = input,"北京",tag=城市
+city = input,"四川",tag=城市
 intl = switch,true,tag=国际油价
 notify = switch,true,tag=通知
 key = input,"",tag=天行API Key
