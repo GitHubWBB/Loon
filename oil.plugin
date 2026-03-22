@@ -1,0 +1,21 @@
+#!name=⛽油价终极版Pro
+#!desc=国内+国际油价+趋势+汇率+倒计时（可参数化）
+#!author=ChatGPT
+#!homepage=https://github.com/
+#!openurl=https://github.com/
+#!date=2026-03-22
+#!icon=https://raw.githubusercontent.com/Toperlock/Quantumult/main/icon/oil.png
+
+[Argument]
+
+cron = input,"0 */6 * * *",tag=定时任务时间,desc=cron表达式（默认每6小时）
+
+city = input,"北京",tag=城市,desc=例如：北京/上海/广东
+
+intl = switch,true,tag=国际油价,desc=开启Brent/WTI
+
+notify = switch,true,tag=是否通知,desc=关闭则仅日志运行
+
+[Script]
+# Cron
+cron {cron} script-path=https://raw.githubusercontent.com/GitHubWBB/Loon/main/js/oil.js, timeout=15, tag=⛽油价提醒, img-url=https://raw.githubusercontent.com/Toperlock/Quantumult/main/icon/oil.png, argument=city={city}&intl={intl}&notify={notify}
